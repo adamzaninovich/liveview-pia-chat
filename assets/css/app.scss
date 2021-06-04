@@ -51,6 +51,10 @@
   width: 1em;
 }
 
+#room-id {
+  cursor: pointer;
+}
+
 #name-change-button {
   color: #cccccc;
   cursor: pointer;
@@ -64,6 +68,16 @@ form#name-change input {
 
 form#chat-form {
   margin: -1em 2em 0px 0px;
+}
+
+#hidden-container {
+  overflow: hidden;
+  position: relative;
+}
+
+#hidden-container #room-id-field {
+  position: absolute;
+  left: -9999px
 }
 
 /* LiveView specific classes for your customizations */

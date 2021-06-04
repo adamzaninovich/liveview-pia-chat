@@ -1,7 +1,7 @@
 <p>
   <%= f = form_for :user, "#", id: "name-change", phx_submit: :submit_name %>
     Currently chatting in
-    <strong><%= @room_id %></strong>
+    <strong id="room-id" title="click to copy"><%= @room_id %></strong>
     as
     <%= if @editing_user do %>
       <%= text_input f, :name, placeholder: @username %>
@@ -31,5 +31,22 @@
 </div>
 
 <%= f = form_for :chat, "#", id: "chat-form", phx_submit: :submit_message, phx_change: :form_update %>
-  <%= text_input f, :message, value: @message, placeholder: "Enter your message..." %>
+  <%= text_input f, :message, value: @message, placeholder: "Enter your message...", id: "chat-message" %>
 </form>
+
+<div id="hidden-container">
+  <input id="room-id-field" type="text" value="<%= @room_id %>">
+</div>
+
+<script type="text/javascript">
+  function copyRoomId() {
+    var text_element = document.querySelector("#room-id-field");
+    text_element.select();
+    text_element.setSelectionRange(0, 99999);
+    document.execCommand("copy");
+    document.querySelector("#chat-message").focus();
+  }
+
+  document.querySelector("#room-id").addEventListener("click", copyRoomId);
+  document.querySelector("#chat-message").focus();
+</script>
