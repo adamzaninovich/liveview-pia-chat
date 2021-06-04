@@ -1,6 +1,65 @@
 /* This file is for your main application css. */
 @import "./phoenix.css";
 
+
+#chat-container {
+  display: flex;
+  padding: 1em;
+  justify-content: space-between;
+  height: 500px;
+}
+
+#chat-messages {
+  flex-grow: 1;
+  border: 1px solid #cccccc;
+  padding: 1em;
+  margin: -1em 1em 1em -1em;
+}
+
+#chat-messages p {
+  margin: 0;
+  padding: 0;
+}
+
+#user-list {
+  flex-grow: 1;
+  border-width: 1px 1px 1px 0px;
+  border-style: solid;
+  border-color: #eeeeee;
+  padding: 1em;
+  margin: -1em 1em 1em -1em;
+}
+
+#user-list ul {
+  list-style: none;
+}
+
+#user-list ul li {
+  margin: 0;
+  padding: 0;
+}
+
+#user-list ul li::before {
+  content: "\25CF";
+  color: #00db8f;
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+}
+
+#name-change-button {
+  color: #aaaaaa
+}
+
+form#name-change input {
+  display: inline;
+  width: 15em;
+}
+
+form#chat-form {
+  margin: -1em 2em 0px 0px;
+}
+
 /* LiveView specific classes for your customizations */
 .phx-no-feedback.invalid-feedback,
 .phx-no-feedback .invalid-feedback {

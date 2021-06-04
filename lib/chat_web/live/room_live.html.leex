@@ -1,0 +1,34 @@
+<p>
+  <%= f = form_for :user, "#", id: "name-change", phx_submit: :submit_name %>
+    Currently chatting in
+    <strong><%= @room_id %></strong>
+    as
+    <%= if @editing_user do %>
+      <%= text_input f, :name, placeholder: @username %>
+    <% else %>
+      <strong><%= @username %></strong>
+      <small id="name-change-button" phx-click="edit_on">change name</small>
+    <% end %>
+  </form>
+</p>
+
+<div id="chat-container">
+  <div id="chat-messages" phx-update="append">
+    <%= for message <- @messages do %>
+      <%= render_message(message) %>
+    <% end %>
+  </div>
+
+  <div id="user-list">
+    <h4>Users Online</h4>
+    <ul>
+    <%= for user <- @users do %>
+      <li><%= user %></li>
+    <% end %>
+    </ul>
+  </div>
+</div>
+
+<%= f = form_for :chat, "#", id: "chat-form", phx_submit: :submit_message, phx_change: :form_update %>
+  <%= text_input f, :message, value: @message, placeholder: "Enter your message..." %>
+</form>
