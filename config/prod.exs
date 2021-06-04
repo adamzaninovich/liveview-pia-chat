@@ -10,8 +10,8 @@ use Mix.Config
 # which you should run after static files are built and
 # before starting your production server.
 config :chat, ChatWeb.Endpoint,
-  force_ssl: [rewrite_on: [:x_forwarded_proto], host: nil],
-  url: [host: "lv-chat-pia.gigalixirapp.com", port: 443],
+  force_ssl: [rewrite_on: [:x_forwarded_proto]],
+  url: [host: "chat.adamzaninovich.com", port: 443],
   cache_static_manifest: "priv/static/cache_manifest.json"
 
 # Do not print debug messages in production
