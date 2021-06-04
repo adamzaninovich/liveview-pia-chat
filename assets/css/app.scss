@@ -1,6 +1,10 @@
 /* This file is for your main application css. */
 @import "./phoenix.css";
 
+#made-by {
+  margin-right: 2em;
+  text-align: right;
+}
 
 #chat-container {
   display: flex;
@@ -48,12 +52,14 @@
 }
 
 #name-change-button {
-  color: #aaaaaa
+  color: #cccccc;
+  cursor: pointer;
 }
 
 form#name-change input {
   display: inline;
-  width: 15em;
+  width: 10em;
+  margin: -7px 0;
 }
 
 form#chat-form {

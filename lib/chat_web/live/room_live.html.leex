@@ -5,6 +5,7 @@
     as
     <%= if @editing_user do %>
       <%= text_input f, :name, placeholder: @username %>
+      <small id="name-change-button" phx-click="edit_off">cancel</small>
     <% else %>
       <strong><%= @username %></strong>
       <small id="name-change-button" phx-click="edit_on">change name</small>

@@ -46,6 +46,10 @@ defmodule ChatWeb.RoomLive do
     {:noreply, assign(socket, editing_user: true)}
   end
 
+  def handle_event("edit_off", _params, socket) do
+    {:noreply, assign(socket, editing_user: false)}
+  end
+
   def handle_event("submit_name", %{"user" => %{"name" => name}}, socket) do
     %{topic: topic, user_id: user_id} = socket.assigns
     ChatWeb.Presence.update(self(), topic, user_id, %{username: name})
