@@ -11,7 +11,13 @@ defmodule ChatWeb.Endpoint do
   ]
 
   socket "/socket", ChatWeb.UserSocket,
-    websocket: true,
+    websocket: [
+      check_origin: [
+        "//chat.adamzaninovich.com",
+        "//lv-chat-pia.gigalixirapp.com",
+        "//localhost:4000"
+      ]
+    ],
     longpoll: false
 
   socket "/live", Phoenix.LiveView.Socket, websocket: [connect_info: [session: @session_options]]
